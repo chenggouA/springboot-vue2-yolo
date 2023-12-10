@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/haut/haut.iml" filepath="$PROJECT_DIR$/haut/haut.iml" />
+      <module fileurl="file://$PROJECT_DIR$/haut-admin/haut-admin.iml" filepath="$PROJECT_DIR$/haut-admin/haut-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/springboo-vue2-yolo.iml" filepath="$PROJECT_DIR$/.idea/springboo-vue2-yolo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/yolo/yolo.iml" filepath="$PROJECT_DIR$/yolo/yolo.iml" />
+    </modules>
+  </component>
+</project>
