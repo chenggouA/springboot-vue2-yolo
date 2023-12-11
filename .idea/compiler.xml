@@ -8,11 +8,13 @@
         <outputRelativeToContentRoot value="true" />
         <module name="yolo" />
         <module name="haut-admin" />
+        <module name="haut-common" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="haut" target="1.5" />
-      <module name="haut-admin" target="1.5" />
+      <module name="haut-admin" target="8" />
+      <module name="haut-common" target="7" />
       <module name="yolo" target="8" />
     </bytecodeTargetLevel>
   </component>

@@ -29,5 +29,6 @@
     <modules>
         <module>../haut-admin</module>
         <module>../yolo</module>
+        <module>../haut-common</module>
     </modules>
 </project>

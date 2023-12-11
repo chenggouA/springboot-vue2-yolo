@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/haut/haut.iml" filepath="$PROJECT_DIR$/haut/haut.iml" />
       <module fileurl="file://$PROJECT_DIR$/haut-admin/haut-admin.iml" filepath="$PROJECT_DIR$/haut-admin/haut-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/haut-common/haut-common.iml" filepath="$PROJECT_DIR$/haut-common/haut-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/springboo-vue2-yolo.iml" filepath="$PROJECT_DIR$/.idea/springboo-vue2-yolo.iml" />
       <module fileurl="file://$PROJECT_DIR$/yolo/yolo.iml" filepath="$PROJECT_DIR$/yolo/yolo.iml" />
     </modules>

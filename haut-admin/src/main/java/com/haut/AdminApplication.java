@@ -17,8 +17,6 @@ public class AdminApplication {
     public static void main(String[] args) throws  Exception{
         ConfigurableApplicationContext run = SpringApplication.run(AdminApplication.class, args);
 
-        Object tumbleYolo = run.getBean("tumbleYolo");
-        System.out.println(tumbleYolo);
     }
 
 }

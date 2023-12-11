@@ -2,9 +2,7 @@ package com.haut.yolo.utils;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import org.opencv.core.Core;
-import org.opencv.core.Mat;
-import org.opencv.core.Size;
+import org.opencv.core.*;
 import org.opencv.imgproc.Imgproc;
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -92,20 +90,16 @@ public class utils {
         return res;
     }
 
-
-    public static void pointBox(String pic, JSONArray box){
-        if(box.size()==0){
+    public static Mat drawBoundingBoxesOnMat(Mat image, JSONArray box) {
+        if (box.size() == 0) {
             System.out.println("暂无识别目标");
-            return;
+            return image.clone(); // 返回原始图像的克隆
         }
+
+        Mat resultImage = image.clone(); // 克隆输入图像以避免修改原始图像
+
         try {
-            File imageFile = new File(pic);
-            BufferedImage img = ImageIO.read(imageFile);
-            Graphics2D graph = img.createGraphics();
-            graph.setStroke(new BasicStroke(2));
-            graph.setFont(new Font("Serif", Font.BOLD, 20));
-            graph.setColor(Color.RED);
-            box.stream().forEach(n->{
+            box.forEach(n -> {
                 JSONObject obj = JSONObject.parseObject(n.toString());
                 String name = obj.getString("name");
                 float percentage = obj.getFloat("percentage");
@@ -115,28 +109,66 @@ public class utils {
                 float ymax = obj.getFloat("ymax");
                 float w = xmax - xmin;
                 float h = ymax - ymin;
-                graph.drawRect(
-                        Float.valueOf(xmin).intValue(),
-                        Float.valueOf(ymin).intValue(),
-                        Float.valueOf(w).intValue(),
-                        Float.valueOf(h).intValue());
+
+                Imgproc.rectangle(resultImage, new Rect((int) xmin, (int) ymin, (int) w, (int) h), new Scalar(0, 0, 255), 2);
+
                 DecimalFormat decimalFormat = new DecimalFormat("#.##");
                 String percentString = decimalFormat.format(percentage);
-                graph.drawString(name+" "+percentString, xmin-1, ymin-5);
+                Imgproc.putText(resultImage, name + " " + percentString, new org.opencv.core.Point(xmin - 1, ymin - 5),
+                        Imgproc.FONT_HERSHEY_SIMPLEX, 0.5, new Scalar(0, 0, 255), 1);
             });
-            graph.dispose();
-            JFrame frame = new JFrame("Image Dialog");
-            frame.setSize(img.getWidth(), img.getHeight());
-            JLabel label = new JLabel(new ImageIcon(img));
-            frame.getContentPane().add(label);
-            frame.setVisible(true);
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        }
-        catch (Exception e){
+
+            return resultImage;
+        } catch (Exception e) {
             e.printStackTrace();
             System.exit(0);
         }
+        return resultImage;
     }
+//    public static void pointBox(String pic, JSONArray box){
+//        if(box.size()==0){
+//            System.out.println("暂无识别目标");
+//            return;
+//        }
+//        try {
+//            File imageFile = new File(pic);
+//            BufferedImage img = ImageIO.read(imageFile);
+//            Graphics2D graph = img.createGraphics();
+//            graph.setStroke(new BasicStroke(2));
+//            graph.setFont(new Font("Serif", Font.BOLD, 20));
+//            graph.setColor(Color.RED);
+//            box.stream().forEach(n->{
+//                JSONObject obj = JSONObject.parseObject(n.toString());
+//                String name = obj.getString("name");
+//                float percentage = obj.getFloat("percentage");
+//                float xmin = obj.getFloat("xmin");
+//                float ymin = obj.getFloat("ymin");
+//                float xmax = obj.getFloat("xmax");
+//                float ymax = obj.getFloat("ymax");
+//                float w = xmax - xmin;
+//                float h = ymax - ymin;
+//                graph.drawRect(
+//                        Float.valueOf(xmin).intValue(),
+//                        Float.valueOf(ymin).intValue(),
+//                        Float.valueOf(w).intValue(),
+//                        Float.valueOf(h).intValue());
+//                DecimalFormat decimalFormat = new DecimalFormat("#.##");
+//                String percentString = decimalFormat.format(percentage);
+//                graph.drawString(name+" "+percentString, xmin-1, ymin-5);
+//            });
+//            graph.dispose();
+//            JFrame frame = new JFrame("Image Dialog");
+//            frame.setSize(img.getWidth(), img.getHeight());
+//            JLabel label = new JLabel(new ImageIcon(img));
+//            frame.getContentPane().add(label);
+//            frame.setVisible(true);
+//            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        }
+//        catch (Exception e){
+//            e.printStackTrace();
+//            System.exit(0);
+//        }
+//    }
 
     // 计算IOU
     public static double calculateIoU(JSONObject box1, JSONObject box2) {
