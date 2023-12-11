@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload and Display</title>
+    <script src="jquery-3.7.1min.js"></script>
+</head>
+<body>
+
+<input type="file" id="imageInput" accept="image/*">
+<button id="sendButton">Send Image</button>
+<div id="resultImageContainer"></div>
+
+<script>
+    $(document).ready(function () {
+        $("#sendButton").on("click", function () {
+            // 获取文件输入框的文件
+            var fileInput = document.getElementById('imageInput');
+            var file = fileInput.files[0];
+
+            // 检查是否选择了文件
+            if (!file) {
+                alert("请选择图片文件");
+                return;
+            }
+
+            // 使用FileReader将文件读取为Base64编码的字符串
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                // 发送Base64编码的图像到后端
+                var base64Image = e.target.result;
+                sendImageDataToBackend(base64Image);
+            };
+            reader.readAsDataURL(file);
+        });
+
+        function sendImageDataToBackend(imageData) {
+        // 使用 jQuery 的 AJAX 方法发送 POST 请求到后端
+        $.ajax({
+          url: 'http://localhost:8080/tumble/processImg',
+          type: 'POST',
+          contentType: 'application/json',
+          data: JSON.stringify({ imageData }),
+          success: function(data) {
+            // 处理后端返回的数据
+            // console.log('后端处理结果:', data);
+            handleData(data);
+            
+          },
+          error: function(error) {
+            console.error('发送请求失败:', error);
+          }
+        });
+      }
+
+      function handleData(data){
+        if(data.code == 200 ){
+            displayImage(data.data);
+        }
+      }
+        function displayImage(base64Image) {
+            // 创建图像元素并设置Base64数据
+            var imageElement = document.createElement("img");
+            imageElement.src = "data:image/jpg;base64," + base64Image;
+
+            // 将图像元素添加到页面上
+            var resultImageContainer = document.getElementById("resultImageContainer");
+            resultImageContainer.innerHTML = "";
+            resultImageContainer.appendChild(imageElement);
+        }
+    });
+</script>
+
+</body>
+</html>
