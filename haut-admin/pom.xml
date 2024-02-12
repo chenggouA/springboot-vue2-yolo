@@ -8,9 +8,9 @@
             <version>1.0-SNAPSHOT</version>
             <relativePath>../haut</relativePath>
         </parent>
-    <artifactId>admin</artifactId>
+    <artifactId>haut_admin</artifactId>
 
-    <name>admin</name>
+<!--    <name>admin</name>-->
     <properties>
         <java.version>8</java.version>
     </properties>
@@ -26,11 +26,18 @@
             <scope>test</scope>
         </dependency>
 
+
+        <!--接口文档生成-->
         <dependency>
-            <groupId>com.haut</groupId>
-            <artifactId>yolo</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+        </dependency>
+
 
         <dependency>
             <groupId>com.haut</groupId>
@@ -39,10 +46,10 @@
         </dependency>
 
         <!-- 在 pom.xml 中添加 WebSocket 依赖 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-websocket</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-websocket</artifactId>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>mysql</groupId>
@@ -50,22 +57,17 @@
             <version>8.0.33</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.haut</groupId>
+            <artifactId>haut_course</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
     </dependencies>
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>8</source>
-                    <target>8</target>
-                </configuration>
-            </plugin>
+
         </plugins>
     </build>
 

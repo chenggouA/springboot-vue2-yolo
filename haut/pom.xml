@@ -13,6 +13,7 @@
     </properties>
     <!-- 依赖声明 -->
     <dependencyManagement>
+
         <dependencies>
 
             <!-- SpringBoot的依赖配置-->
@@ -24,11 +25,46 @@
                 <scope>import</scope>
             </dependency>
 
+            <!-- pom.xml 文件 -->
+
+            <!--接口文档-->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>2.9.2</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>2.9.2</version>
+            </dependency>
+
+            <!-- JUnit-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>2.7.17</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>8.0.33</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>2.1.4</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
     <modules>
         <module>../haut-admin</module>
-        <module>../yolo</module>
         <module>../haut-common</module>
+        <module>../haut_attendance</module>
+        <module>../haut_course</module>
     </modules>
 </project>

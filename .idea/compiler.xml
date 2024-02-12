@@ -6,15 +6,15 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="yolo" />
+        <module name="admin" />
         <module name="haut-admin" />
         <module name="haut-common" />
+        <module name="haut_attendance" />
+        <module name="haut_course" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="haut" target="1.5" />
       <module name="haut-admin" target="8" />
-      <module name="haut-common" target="7" />
       <module name="yolo" target="8" />
     </bytecodeTargetLevel>
   </component>

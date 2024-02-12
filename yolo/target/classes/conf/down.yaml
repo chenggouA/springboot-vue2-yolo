@@ -1,5 +1,0 @@
-nc: 2
-names: ['down', 'person']
-imgsz: 640
-nmsThreshold: 0.45
-confThreshold: 0.25
