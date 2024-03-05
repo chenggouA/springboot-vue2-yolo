@@ -33,6 +33,8 @@
             <artifactId>springfox-swagger-ui</artifactId>
         </dependency>
 
+
+
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
@@ -62,6 +64,20 @@
             <artifactId>haut_course</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.haut</groupId>
+            <artifactId>haut-action</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+
+        <!-- 只能在开发环境中使用 -->
+<!--        <dependency>-->
+<!--            <groupId>org.bgee.log4jdbc-log4j2</groupId>-->
+<!--            <artifactId>log4jdbc-log4j2-jdbc4</artifactId>-->
+<!--            <version>1.16</version>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
 
     </dependencies>
 

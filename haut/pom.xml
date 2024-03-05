@@ -66,5 +66,6 @@
         <module>../haut-common</module>
         <module>../haut_attendance</module>
         <module>../haut_course</module>
+        <module>../haut-action</module>
     </modules>
 </project>
