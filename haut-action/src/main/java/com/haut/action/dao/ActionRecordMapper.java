@@ -38,7 +38,7 @@ public interface ActionRecordMapper {
             @Result(column = "x2", property = "x2"),
             @Result(column = "y2", property = "y2")
     })
-    @Select("select * from haut_coordinates where id in (SELECT id FROM haut_action_record WHERE timestamp BETWEEN #{startTime} and #{endTime})")
+    @Select("select * from haut_coordinates where haut_coordinates.action_record_id in (SELECT id FROM haut_action_record WHERE timestamp BETWEEN #{startTime} and #{endTime})")
     List<ActionCoordinates> getActionCoordinates(@Param("startTime") String startTime, @Param("endTime")String endTime);
 
 }

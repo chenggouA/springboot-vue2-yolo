@@ -8,7 +8,6 @@ import com.haut.action.domain.ActionCoordinates;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -29,7 +28,7 @@ public class BehaviorStatisticsServiceImpl implements BehaviorStatisticsService 
         Map<Integer, Integer> mp = new HashMap<>();
 
         for(ActionCoordinates coordinate: actionCoordinates){
-            int actionId = coordinate.getActionRecordId();
+            int actionId = coordinate.getBehaviorId();
             if(!mp.containsKey(actionId))
                 mp.put(actionId, 0);
             mp.put(actionId, mp.get(actionId) + 1);
