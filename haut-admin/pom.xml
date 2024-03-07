@@ -59,15 +59,17 @@
             <version>8.0.33</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.haut</groupId>
-            <artifactId>haut_course</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
+
         <dependency>
             <groupId>com.haut</groupId>
             <artifactId>haut-action</artifactId>
             <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.haut</groupId>
+            <artifactId>haut_attendance</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
 
 

@@ -11,11 +11,11 @@
         <module name="haut-admin" />
         <module name="haut-common" />
         <module name="haut_attendance" />
-        <module name="haut_course" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="haut-admin" target="8" />
+      <module name="haut_course" target="1.8" />
       <module name="yolo" target="8" />
     </bytecodeTargetLevel>
   </component>

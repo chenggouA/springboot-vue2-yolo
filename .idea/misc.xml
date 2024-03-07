@@ -11,6 +11,7 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/haut/haut_attendance/pom.xml" />
+        <option value="$PROJECT_DIR$/haut_course/pom.xml" />
         <option value="$PROJECT_DIR$/yolo/pom.xml" />
       </set>
     </option>
